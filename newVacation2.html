@@ -1,0 +1,220 @@
+<style>
+  .demo-layout-transparent {
+    background: url('https://p4.wallpaperbetter.com/wallpaper/232/140/1011/white-sand-beach-wallpaper-preview.jpg') center / cover;
+    ;
+  }
+
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+    color: white;
+  }
+
+  .centerText {
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+
+  .textField {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.952);
+    backface-visibility: visible;
+  }
+
+  .background {
+    background: rgba(179, 255, 0, 0.452);
+    justify-content: center;
+    word-wrap: normal;
+    background-size: 258px 66px;
+  }
+
+  #map {
+    position: relative;
+    height: calc(40vh - 56px);
+  }
+
+  .table {
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 129px;
+    width:max-content;
+    display: block;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 8px 15px;
+    text-align: left;
+  }
+</style>
+<html>
+
+<head>
+  <!-- Material Design Lite -->
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_green.min.css" />
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- mapbox-->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+  <!--Javascript files-->
+  <script src="js/services.js"></script>
+  <!--config-->
+  <script src="js/config.js"></script>
+  <!--icon-->
+  <link rel="shortcut icon" type="image/png" href="img/GetawayBloom.png" />
+</head>
+
+<body onload="setDefaultStartingLocation()">
+  <!-- Uses a transparent header that draws on top of the layout's background -->
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <header class="l-layout__header mdl-layout__header--transparent">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <img src="img/GetawayBloom.png" width="50" height="50"></src>
+        <span class="mdl-layout-title">
+          <div style="color: white;">
+            <h3>GetawayBloom</h3>
+        </span>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="homePage.html">Homepage</a>
+        <a class="mdl-navigation__link" href="journal.html">Vacation Journal</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <!--left margin-->
+        <div class="mdl-cell mdl-cell--1-col"></div>
+        <!--content columns-->
+        <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet">
+          <!--Starting Address input-->
+          <div>
+            <span class="mdl-list__item-primary-content">
+
+              <strong style=color:white;>Starting location address:</strong>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="startingAddress" style=color:white;>
+                <label class="mdl-textfield__label" for="startingAddress"></label>
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+                onclick="confirmAddStartingLocation()">
+                <i class="material-icons">add_location</i>
+              </button>
+            </span>
+          </div>
+          <div>
+            <span class="mdl-list__item-primary-content">
+
+              <strong style=color:white;>Where are your points of interests?:</strong>
+
+
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" ;>
+                <input class="mdl-textfield__input" type="text" id="poiArea" style=color:white;>
+                <label class="mdl-textfield__label" for="sample3">Area of interest</label>
+              </div>
+
+              <!--Poi category select-->
+              <!--Restaurants-->
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect background" for="restaurants">
+                <input type="radio" id="restaurants" class="mdl-radio__button" name="categories" value="Restaurants"
+                  checked>
+                <span class="mdl-radio__label">
+                  <img src="https://img.icons8.com/ios-glyphs/30/000000/restaurant.png" />
+                </span>
+              </label>
+              <!--Gas station-->
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect background" for="gasStation">
+                <input type="radio" id="gasStation" class="mdl-radio__button" name="categories" value="Gas stations"
+                  unchecked>
+                <span class="mdl-radio__label">
+                  <img src="https://img.icons8.com/ios-glyphs/30/000000/gas-station.png" />
+                </span>
+              </label>
+              <!--Lodging-->
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect background" for="lodging">
+                <input type="radio" id="lodging" class="mdl-radio__button" name="categories" value="Lodging" unchecked>
+                <span class="mdl-radio__label">
+                  <img src="https://img.icons8.com/ios-glyphs/30/000000/bed.png" />
+                </span>
+              </label>
+              <!--Attractions-->
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect background" for="attractions">
+                <input type="radio" id="attractions" class="mdl-radio__button" name="categories" value="Attractions"
+                  unchecked>
+                <span class="mdl-radio__label">
+                  <img src="https://img.icons8.com/ios-glyphs/30/000000/eiffel-tower.png" />
+                </span>
+              </label>
+              <!-- Accent-colored raised button -->
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+                onclick="searchPoi()">
+                <i class="material-icons">search</i>
+              </button>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                <label class="mdl-textfield__label" for="selectPoi" style="color: white">Select Poi</label>
+                <select class="mdl-textfield__input" id="selectPoi" style="color: white;">
+                  <option value=""></option> <!-- default option should always be empty -->
+                </select>
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="confirmPoi()">
+                <i class="material-icons">add_location</i>
+              </button>
+            </span>
+          </div>
+          <div>
+            <div id=map></div>
+          </div>
+          <div>
+            <span class="mdl-list__item-primary-content">
+              <div>
+                <div id="poiTable" class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet table">
+                </div>
+            </span>
+          </div>
+          <div>
+            <span class="mdl-list__item-primary-content">
+              <strong>Swap poi:</strong>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                <select class="mdl-textfield__input" id="swapPoi">
+                  <option value=""></option> <!-- default option should always be empty -->
+                </select>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                <select class="mdl-textfield__input" id="swapPoiTarget">
+                  <option value=""></option> <!-- default option should always be empty -->
+                </select>
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="swapPoi()">
+                <i class="material-icons">swap_horiz</i>
+              </button>
+              <div id="distance" style="color: black;"></div>
+              <div id="vehicleRange" style="color: black;"></div>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                onclick="confirmVacation2()">
+                Save
+              </button>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="cancelVacation()">
+                Cancel
+              </button>
+            </span>
+          </div>
+          <div>
+
+          </div>
+
+        </div>
+      </div>
+  </div>
+  </main>
+  </div>
+</body>
+<script src="js/shared.js"></script>
+<script src="js/newVacation.js"></script>
+</html>

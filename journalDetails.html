@@ -1,0 +1,130 @@
+<style>
+.demo-layout-transparent {
+  background: url('https://p4.wallpaperbetter.com/wallpaper/232/140/1011/white-sand-beach-wallpaper-preview.jpg') center / cover;
+}
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+      your background is light. */
+  color: white;
+  }
+
+.table {
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 150px;
+    width:max-content;
+    display: block;
+    text-align: left;
+}
+
+#container {
+    width: 900px;
+    margin: auto;
+}
+#left {
+    width: 34%;
+    float: left;
+    height: 100px;
+}
+#middle {
+    width: 32%;
+    float: left;
+    height: 100px;
+}
+#right {
+    width: 34%;
+    float: right;
+    height: 100px;
+}
+
+#map {
+    position: relative;
+    height: calc(40vh - 56px);
+}
+    </style>
+    <html>
+      <head>
+        <head>
+          <!-- Material Design Lite -->
+          <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+          <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_green.min.css"/> 
+          <!-- Material Design icon font -->
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+          <!-- mapbox-->
+          <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+          <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+           <!--Javascript files-->
+           <script src="js/services.js"></script>
+          <!--config-->
+          <script src="js/config.js"></script>
+            <!--icon-->
+         <link rel="shortcut icon" type="image/png" href="img/GetawayBloom.png"/>
+          </head>
+      </head>
+      <body>
+      <!-- Uses a transparent header that draws on top of the layout's background -->
+      <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="l-layout__header mdl-layout__header--transparent">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <img src = "img/GetawayBloom.png" width= "50" height = "50"></src>
+            <span class="mdl-layout-title" style="color: white;"><h3>GetawayBloom</h3></span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Menu</span>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="homePage.html">Homepage</a>
+            <a class="mdl-navigation__link" href="journal.html">Vacation Journal</a>
+          </nav>
+        </div>
+        <main class="mdl-layout__content">
+          <div class="page-content">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--10-col">
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <div style="color: white; text-align: left;">
+                    <h3>Vacation Details</h3>
+                  </div>
+                </div>
+                <div id = "Container" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <div id = "left">
+                    <label><strong>Vacation Name: </strong></label><div id = "VacationName" style="color: white;"></div>
+                    <label><strong>Vacation Date: </strong></label><div id = "VacationDate" style="color: white;"></div>
+                  </div>
+                  <div id = "middle">
+                    <label><strong>Total Travel Distance: </strong></label><div id = "TravelDistance" style="color: white;"></div>
+                    <label><strong>Number of Stops: </strong></label><div id = "numberOfStops" style="color: white;"></div>
+                  </div>
+                  <div id = "right">
+                    <label><strong>Vehicle Type: </strong></label><div id = "VehicleType" style="color: white;"></div>
+                    <label><b>Vehicle Range: </b></label><div id = "VehicleRange" style="color: white;"></div>
+                  </div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <label><strong>Map: </strong></label>
+                    <div id=map></div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <label><strong>Stop Details: </strong></label><div id = "StopsDetails" class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet table"></div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick ="back()">
+                    <i class="material-icons">arrow_back</i>
+                  </button>
+                </div>
+              
+              </div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+            </div>
+          </div>
+        </main>
+      </div>
+      </body>
+    </html>
+    <script src = "js/shared.js"></script> 
+    <script src="js/journalDetails.js"></script>

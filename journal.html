@@ -1,0 +1,98 @@
+<style>
+  .demo-layout-transparent {
+    background: url('https://p4.wallpaperbetter.com/wallpaper/232/140/1011/white-sand-beach-wallpaper-preview.jpg') center / cover;
+  }
+    .demo-layout-transparent .mdl-layout__header,
+    .demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+    color: white;
+    }
+
+    .table {
+    overflow: auto;
+    height: 500px;
+    table-layout:fixed;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+  </style>
+  <html>
+    <head>
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_green.min.css"/> 
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Javascript files-->
+    <script src="js/services.js"></script>
+      <!--icon-->
+      <link rel="shortcut icon" type="image/png" href="img/GetawayBloom.png"/>
+    </head>
+    <body>
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="l-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <img src = "img/GetawayBloom.png" width= "50" height = "50"></src>
+          <span class="mdl-layout-title" style="color: white;"><h3>GetawayBloom</h3></span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Button -->
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="planNewVacation()">
+            Create New Vacation
+         </button>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Menu</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="homePage.html">Homepage</a>
+          <a class="mdl-navigation__link" href="journal.html">Vacation Journal</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <!--Left Margin-->
+            <div class="mdl-cell mdl-cell--1-col"></div>
+            <div style="color: white;">
+              <h3>Vacations Journal</h3>
+            </div>
+        </div>
+        
+        <div class="page-content">
+          <div class="mdl-grid">
+              <!--Journal table-->
+                  <!--Left Margin-->
+                  <div class="mdl-cell mdl-cell--1-col"></div>
+                  <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet table">
+                    <table class="mdl-data-table mdl-js-data-table">
+                      <thread>
+                        <tr>
+                          <td style="text-align:center">Vacation Name</td>
+                          <td style="text-align:center">Vacation Date</td>
+                          <td style="text-align:center">Starting Location</td>
+                          <td style="text-align:center">Vehicle Type</td>
+                          <td style="text-align:center">Total Distance</td>
+                          <td style="text-align:center">Number of Stops</td>
+                          <td style="text-align:center">Actions</td>
+                        </tr>
+                      </thread>
+                      <tbody id="plannedVacationsData">
+                        <!-- placeholder for planned vacations display -->
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--Right Margin-->
+            <div class="mdl-cell mdl-cell--1-col"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    </body>
+  </html>
+  <script src="js/config.js"></script>
+  <script src = "js/shared.js"></script>   
+      <script src="js/journal.js"></script>

@@ -1,0 +1,102 @@
+<style>
+  .demo-layout-transparent {
+    background: url('https://wallpapershome.com/images/pages/pic_h/632.jpg') center / cover;
+  }
+
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+    color: white;
+  }
+
+  .centerText {
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+
+  .textField {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.952);
+    backface-visibility: visible;
+  }
+
+  .background {
+    background: rgba(0, 225, 255, 0.452);
+    justify-content: center;
+    word-wrap: normal;
+  }
+</style>
+<html>
+
+<head>
+  <!-- Material Design Lite -->
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_green.min.css" />
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- mapbox-->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+  <!--Javascript files-->
+  <script src="js/services.js"></script>
+  <!--config-->
+  <script src="js/config.js"></script>
+  <!--main-->
+  <script src="js/main.js"></script>
+  <!--icon-->
+  <link rel="shortcut icon" type="image/png" href="img/GetawayBloom.png" />
+  <link rel="shortcut icon" type="image/png" href="img/big logo GetawayBloom (1).png" />
+
+</head>
+
+<body>
+  <!-- Uses a transparent header that draws on top of the layout's background -->
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <header class="l-layout__header mdl-layout__header--transparent">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <img src="img/GetawayBloom.png" width="50" height="50"></src>
+        <span class="mdl-layout-title">
+          <h3 style="color:#0fc7e7">Getaway Bloom</h3>
+        </span>
+
+
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="homePage.html">Homepage</a>
+        <a class="mdl-navigation__link" href="journal.html">Vacation Journal</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="centerText">
+        <img src="img/big logo GetawayBloom (1).png" width="250" height="160"></src>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-cell--12-col">
+          <h5 class="centerText" style="color: white;">
+            <span style="background-color: #0fc7e7">Welcome to Getaway Bloom travel planner!</span>
+          </h5>
+          <br>
+          <div class="centerText" style="color: white;">
+            <p>
+              <span style="background-color: #0fc7e7">Create your vacation and add them to your journal.</span>
+            </p>
+          </div>
+          <div>
+            <div class="centerText">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                onclick="planVacationPage()">
+                Create your vacation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

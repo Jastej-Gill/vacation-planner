@@ -1,0 +1,158 @@
+<style>
+    .demo-layout-transparent {
+      background: url('https://p4.wallpaperbetter.com/wallpaper/232/140/1011/white-sand-beach-wallpaper-preview.jpg') center / cover;;
+    }
+      .demo-layout-transparent .mdl-layout__header,
+      .demo-layout-transparent .mdl-layout__drawer-button {
+      /* This background is dark, so we set text to white. Use 87% black instead if
+         your background is light. */
+      color: white;
+      }
+
+      .centerText {
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+
+      .textField {
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.952);
+        backface-visibility: visible;
+      }
+
+      .background {
+        background: rgba(83, 80, 80, 0.452);
+        justify-content: center;
+        word-wrap: normal;
+      }
+
+</style>
+    <html>
+      <head>
+      <!-- Material Design Lite -->
+      <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_green.min.css"/> 
+      <!-- Material Design icon font -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <!-- mapbox-->
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet'>
+       <!--Javascript files-->
+       <script src="js/services.js"></script>
+      <!--config-->
+      <script src="js/config.js"></script>
+        <!--icon-->
+     <link rel="shortcut icon" type="image/png" href="img/GetawayBloom.png"/>
+      </head>
+      <body>
+      <!-- Uses a transparent header that draws on top of the layout's background -->
+        <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+          <header class="l-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <img src = "https://cdn.discordapp.com/attachments/879560816142200845/897044169749581824/GetawayBloom.png" width= "50" height = "40"></src>
+              <span class="mdl-layout-title"><div style = "color: white;"><h3>GetawayBloom</h3></span></div>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Menu</span>
+            <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="homePage.html">Homepage</a>
+            <a class="mdl-navigation__link" href="journal.html">Vacation Journal</a>
+            </nav>
+          </div>  
+          <main class="mdl-layout__content">
+            <div class="mdl-grid">
+              </div>
+                <div style="color: white; text-align: center;">
+                  <h3>Create your vacation</h3>
+                </div>
+            
+            
+           <!--Naming vacation-->
+           <div class = "mdl-grid">
+              <div class="mdl-cell--12-col">
+              <h4 class = "centerText">Name your vacation</h4>
+              
+              <div class = "mdl-cell mdl-cell--2-col mdl-cell--5-offset-desktop mdl-cell--2-offset-tablet mdl-cell--1-offset-phone" >
+                <div class = "background">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="vacationName">
+                    <label class="mdl-textfield__label" for="vacationName">Type here...</label>
+                  </div>
+                </div>
+              </div> 
+            </div>
+           
+            
+            <!--Picking Date-->
+            <div class = "mdl-grid">
+                <div class="mdl-cell--12-col">
+                   <h4 class = "centerText">Pick a date</h4>
+                </div>
+                <div class = "mdl-cell--3-offset-desktop mdl-cell--2-offset-tablet mdl-cell--1-offset-phone" >
+                  <input type="date" id = "vacationDate">
+                </div>
+            </div>
+            
+              
+            <!--Select vehicle type-->
+            <div class="mdl-cell--12-col">
+              <h4 class = "centerText">Pick vehicle type</h4>
+            </div>
+            <div class = "mdl-cell mdl-cell--4-col mdl-cell--5-offset" >
+                <div>
+                  <!--Sedan-->
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="sedan">
+                      <input type="radio" id="sedan" class="mdl-radio__button" name="options" value="Sedan" checked>
+                      <span class="mdl-radio__label">
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/sedan.png"/>
+                      </span>
+                  </label>
+                  <!--SUV-->
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="suv">
+                    <input type="radio" id="suv" class="mdl-radio__button" name="options" value="SUV" unchecked>
+                    <span class="mdl-radio__label">
+                      <img src="https://img.icons8.com/ios-glyphs/30/000000/suv.png"/>
+                    </span>
+                  </label>
+                  <!--Van-->
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="van">
+                    <input type="radio" id="van" class="mdl-radio__button" name="options" value="Van" unchecked>
+                    <span class="mdl-radio__label">
+                      <img src="https://img.icons8.com/ios-glyphs/30/000000/van.png"/>
+                    </span>
+                  </label>
+                  <!--Minibus-->
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="minibus">
+                    <input type="radio" id="minibus" class="mdl-radio__button" name="options" value="Minibus" unchecked>
+                  <span class="mdl-radio__label">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/bus-2.png"/>
+                  </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!--Go to next page-->
+            <!-- <div class = mdl-grid> -->
+              <div class = "centerText" >
+                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="confirmAddVacation1()">
+                      Next
+                   </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="cancel()">
+                    Cancel
+                  </button>
+              </div>
+               
+            <!-- </div> -->
+                            
+          </div>
+          </main>
+        </div>
+      </body>
+    </html>
+    <script src = "js/shared.js"></script>
+    <script src = "js/newVacation.js"></script>
